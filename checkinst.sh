@@ -1,6 +1,17 @@
 #!/bin/bash
-echo "Creeating log file"
-cd /home/donjoe/logs
+cd $HOME
+echo "Enter the logs directory name"
+read directoryname
+
+if [ -d "$directoryname" ]; then
+echo "Directory already exists" ;
+else
+`mkdir -p $directoryname`;
+echo "$directoryname directory is created"
+fi
+
+echo "Creating log file"
+
 echo "Searching for installed apps."
 apt list --installed > installedapps.txt
 sleep 1
